@@ -1,17 +1,20 @@
 <?php
 
-/**
- * Helper Functions
- * Common utility functions used throughout the application
- */
+// Guard to prevent redeclaration of functions
+if (defined('HELPERS_INCLUDED')) {
+    return;
+}
+define('HELPERS_INCLUDED', true);
 
 /**
+ * Helper Functions
  * Get environment variable with fallback
  */
-function env($key, $default = null)
-{
-    $value = getenv($key);
-    return $value !== false ? $value : $default;
+if (!function_exists('env')) {
+    function env($key, $default = null) {
+        $value = getenv($key);
+        return $value !== false ? $value : $default;
+    }
 }
 
 /**
