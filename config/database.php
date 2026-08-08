@@ -71,9 +71,9 @@ class Database
      */
     public function getConnection()
     {
-        if ($this->connection === null || !$this->connection->ping()) {
-            $this->connect();
-        }
+       if ($this->connection === null) {
+    $this->connect();
+     }
         return $this->connection;
     }
 
@@ -265,5 +265,5 @@ class Database
     /**
      * Prevent unserialize
      */
-    private function __wakeup() {}
+    public function __wakeup() {}
 }

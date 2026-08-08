@@ -457,5 +457,5 @@ class Auth
     /**
      * Prevent unserialize
      */
-    private function __wakeup() {}
+    public function __wakeup() {}
 }
