@@ -1,0 +1,334 @@
+/* ==========================================
+   Dashboard & Page-Specific Styles
+   ========================================== */
+
+/* Dashboard Stats */
+.stat-card {
+    border-radius: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+/* Upload Area */
+.upload-area {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-area:hover {
+    background: rgba(124, 58, 237, 0.1) !important;
+    border-color: #7c3aed !important;
+}
+
+.upload-area.drag-over {
+    border-color: #7c3aed;
+    background: rgba(124, 58, 237, 0.15) !important;
+}
+
+/* Feature Cards */
+.feature-card {
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="1200" height="600" fill="url(%23pattern)"/></svg>');
+    pointer-events: none;
+}
+
+/* Result Cards */
+.result-card {
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.result-card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.score-circle {
+    animation: slideInDown 0.5s ease;
+}
+
+/* Skill Tags */
+.skill-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.skill-tag.matched {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #047857;
+    border: 1px solid #10b981;
+}
+
+.skill-tag.missing {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #991b1b;
+    border: 1px solid #ef4444;
+}
+
+/* Progress Indicators */
+.progress-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.progress-step::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 60px;
+    width: 2px;
+    height: 40px;
+    background-color: #e5e7eb;
+    z-index: -1;
+}
+
+.progress-step:last-child::before {
+    display: none;
+}
+
+.progress-step-number {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+/* Accordion */
+.accordion-button {
+    font-weight: 500;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #7c3aed;
+    color: white;
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 0.25rem rgba(124, 58, 237, 0.25);
+}
+
+.accordion-body {
+    padding: 1.5rem;
+}
+
+/* List Groups */
+.list-group-item {
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+.list-group-item:last-child {
+    margin-bottom: 0;
+}
+
+.list-group-item:hover {
+    background-color: rgba(124, 58, 237, 0.05);
+    border-color: #7c3aed;
+}
+
+/* Table Enhancements */
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(124, 58, 237, 0.05);
+}
+
+.table-sm {
+    font-size: 0.875rem;
+}
+
+/* Notifications */
+.toast {
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-lg);
+    border: none;
+}
+
+.toast-header {
+    border-radius: 0.75rem 0.75rem 0 0;
+}
+
+.toast-body {
+    color: #374151;
+}
+
+/* Spinner */
+.spinner-border {
+    border-width: 0.3em;
+}
+
+/* Modal Enhancements */
+.modal-header .btn-close {
+    padding: 0.5rem;
+}
+
+.modal-dialog {
+    animation: slideInDown 0.3s ease;
+}
+
+/* Landing Page Specific */
+.landing-hero {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.cta-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 1rem;
+    padding: 3rem;
+    color: white;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .stat-card {
+        margin-bottom: 1rem;
+    }
+
+    .upload-area {
+        min-height: 150px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-section {
+        padding: 2rem 1rem;
+    }
+
+    .progress-step {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Accessibility */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Loading States */
+.skeleton {
+    background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Focus Visible */
+*:focus-visible {
+    outline: 2px solid #7c3aed;
+    outline-offset: 2px;
+}
+
+/* Dark Mode Support (if needed) */
+@media (prefers-color-scheme: dark) {
+    /* Can add dark mode styles here */
+}
+
+/* Print Optimization */
+@media print {
+    .card {
+        page-break-inside: avoid;
+        box-shadow: none;
+    }
+
+    .btn {
+        display: none;
+    }
+
+    .score-circle {
+        border: 2px solid #7c3aed;
+    }
+}
