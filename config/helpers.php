@@ -241,12 +241,25 @@ if (!function_exists('validateUpload')) {
         if ($file['size'] > $maxSize) {
             return ['success' => false, 'message' => 'File too large'];
         }
-        $finfo = finfo_open(FILEINFO_MIME_TYPE);
-        $mimeType = finfo_file($finfo, $file['tmp_name']);
-        finfo_close($finfo);
-        if (!in_array($mimeType, $allowedTypes)) {
-            return ['success' => false, 'message' => 'Invalid file type'];
+        
+        // Check file extension instead of using finfo_open
+        $fileName = strtolower($file['name']);
+        $fileExt = pathinfo($fileName, PATHINFO_EXTENSION);
+        
+        // Map extensions to MIME types
+        $extToMime = [
+            'pdf' => 'application/pdf',
+            'doc' => 'application/msword',
+            'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+        ];
+        
+        $fileMimeType = $extToMime[$fileExt] ?? 'application/octet-stream';
+        
+        // Only allow PDF files
+        if ($fileExt !== 'pdf') {
+            return ['success' => false, 'message' => 'Only PDF files are allowed'];
         }
+        
         return ['success' => true];
     }
 }
