@@ -153,7 +153,8 @@ function extractSkillsFromText($text, $db)
     foreach ($skillCategories as $skill) {
         $skillLower = strtolower($skill['skill_name']);
 
-        if (preg_match('/\b' . preg_quote($skillLower) . '\b/', $text)) {
+        $escapedSkill = preg_quote($skillLower, '/');
+        if (preg_match('/\b' . $escapedSkill . '\b/i', $text)) {
             $frequency = substr_count($text, $skillLower);
             $confidence = min(1, $frequency / 3);
 
