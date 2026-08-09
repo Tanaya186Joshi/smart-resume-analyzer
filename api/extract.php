@@ -208,7 +208,7 @@ function extractPdfText($filePath)
 
         // Clean and normalize text
         $text = preg_replace('/\s+/', ' ', $text);
-        $text = preg_replace('/[^\w\s.,!?-@+()\/\\]/', '', $text);
+        $text = preg_replace('/[^\w\s.,!?\-@+()\\/]/', '', $text);
         $text = trim($text);
 
         return $text;
