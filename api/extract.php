@@ -271,10 +271,11 @@ function extractSkills($text, $db)
             $patterns = array_merge($patterns, $aliases);
         }
 
-        foreach ($patterns as $pattern) {
+       foreach ($patterns as $pattern) {
             $pattern = strtolower($pattern);
             // Word boundary matching
-            if (preg_match('/\b' . preg_quote($pattern) . '\b/i', $text)) {
+            $escapedPattern = preg_quote($pattern, '/');
+            if (preg_match('/\b' . $escapedPattern . '\b/i', $text)) {
                 $frequency = substr_count($text, $pattern);
                 $confidence = min(1, $frequency / 5); // Confidence increases with frequency
 
